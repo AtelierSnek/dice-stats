@@ -1,0 +1,63 @@
+name: dice-stats
+version: 0.1.0.0
+github: "AtelierFox/dice-stats"
+license: BSD3
+author: "Sami Vassilev"
+maintainer: "sami@flooffle.com"
+copyright: "All Rights Reserved 2020"
+
+extra-source-files:
+  - README.md
+  - ChangeLog.md
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Web
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description: Please see the README on GitHub at <https://github.com/AtelierFox/dice-stats#readme>
+
+dependencies:
+  - base >= 4.7 && < 5
+
+library:
+  source-dirs: src
+default-extensions:
+  - EmptyCase
+  - LambdaCase
+  - MultiWayIf
+  - InstanceSigs
+  - ScopedTypeVariables
+  - BangPatterns
+  - OverloadedStrings
+  - ConstrainedClassMethods
+  - NamedFieldPuns
+
+executables:
+  dice-roller-exe:
+    main: Main.hs
+    source-dirs: app
+    ghc-options:
+      - -threaded
+      - -rtsopts
+      - -with-rtsopts=-N
+      - -Wall
+      - -Wcompat
+      - -Wincomplete-record-updates
+      - -Wincomplete-uni-patterns
+      - -Wredundant-constraints
+    dependencies:
+      - dice-stats
+
+tests:
+  dice-roller-test:
+    main: Spec.hs
+    source-dirs: test
+    ghc-options:
+      - -threaded
+      - -rtsopts
+      - -with-rtsopts=-N
+    dependencies:
+      - dice-roller
