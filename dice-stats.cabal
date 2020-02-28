@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 34ed05bde87592f1b7e534954c36c2b08a1ce1788a6b7ce4bec25654224862b5
+-- hash: e960a8273b20c8ec016eb5afb2d60a4c8b69548acfe48889914718c8efb2d152
 
 name:           dice-stats
 version:        0.1.0.0
@@ -40,6 +40,7 @@ library
 executable dice-roller-exe
   main-is: Main.hs
   other-modules:
+      Dice
       Paths_dice_stats
   hs-source-dirs:
       app
