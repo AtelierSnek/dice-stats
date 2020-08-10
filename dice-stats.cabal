@@ -1,10 +1,10 @@
 cabal-version: 1.12
 
--- This file has been generated from package.yaml by hpack version 0.31.2.
+-- This file has been generated from package.yaml by hpack version 0.33.0.
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: e76d068605a88b65247282749aa58057531b8aa2c6235d850bd24d6ad9d26acf
+-- hash: fa165d8a03ac35dc7b050f47fbc253160a2e06bd0aa2ebf150279f4cac7517e7
 
 name:           dice-stats
 version:        0.1.0.0
@@ -36,6 +36,7 @@ library
   default-extensions: EmptyCase LambdaCase MultiWayIf InstanceSigs ScopedTypeVariables BangPatterns OverloadedStrings ConstrainedClassMethods NamedFieldPuns
   build-depends:
       base >=4.7 && <5
+    , text >1.2.0.0
   default-language: Haskell2010
 
 executable dice-roller-exe
@@ -49,6 +50,7 @@ executable dice-roller-exe
   build-depends:
       base >=4.7 && <5
     , dice-stats
+    , text >1.2.0.0
   default-language: Haskell2010
 
 test-suite dice-roller-test
@@ -63,4 +65,5 @@ test-suite dice-roller-test
   build-depends:
       base >=4.7 && <5
     , dice-roller
+    , text >1.2.0.0
   default-language: Haskell2010
