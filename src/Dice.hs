@@ -22,6 +22,11 @@ class ((Eq (Carried d), Ord (Carried d), Enum (Carried d))) => Die d where
 
 data Die' c = Die' { act' :: Maybe (c -> [Die' c]), poss' :: [c] }
 
+
+-- This isn't actually a complete show instance, as act' is a function, and those can't be shown (not really)
+instance (Show c) => Show (Die' c) where
+  show = show . poss'
+
 instance Die (Die' Integer) where
   type Carried (Die' Integer) = Integer
   possible = poss'
@@ -54,7 +59,7 @@ options3 d e f = (,,) <$> possible d <*> possible e <*> possible f
 
 applyOp :: (Die d, Die e, Die f) => (Carried d -> Carried e -> Carried f) -> [(Carried d, Carried e)] -> [Carried f]
 applyOp f ((a,b) : xs)
-  | null xs = []
+  | null xs = [a `f` b]
   | otherwise = a `f` b : applyOp f xs
 
 getStats :: Die d => [Carried d] -> [(Carried d,Integer)]
